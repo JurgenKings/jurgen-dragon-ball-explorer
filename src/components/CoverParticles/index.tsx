@@ -2,10 +2,11 @@
 import { useEffect, useState } from "react"
 import { loadSlim } from "@tsparticles/slim"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
+import { useTheme } from "@/context/ThemeContext"
 
 function CoverParticles() {
-
-  const [init, setInit] = useState(false)
+  const [init, setInit] = useState<boolean>(false)
+  const { isDarkMode } = useTheme()
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -35,24 +36,24 @@ function CoverParticles() {
               },
               modes: {
                 push: {
-                  quantity: 4,
+                  quantity: 3, 
                 },
                 repulse: {
-                  distance: 200,
+                  distance: 150, 
                   duration: 0.4,
                 },
               },
             },
             particles: {
               color: {
-                value: "#ffff00",
+                value: `${isDarkMode ? "#00FFFF" : "#00008B"}`,
               },
               links: {
-                color: "#ff00ff",
-                distance: 150,
+                color: `${isDarkMode ? "#00FFFF" : "#00008B"}`,
+                distance: 120, 
                 enable: true,
-                opacity: 0.5,
-                width: 1,
+                opacity: 0.3, 
+                width: 0.75, 
               },
               move: {
                 direction: "none",
@@ -61,23 +62,23 @@ function CoverParticles() {
                   default: "bounce",
                 },
                 random: false,
-                speed: 1,
+                speed: 0.7, 
                 straight: false,
               },
               number: {
                 density: {
                   enable: true,
                 },
-                value: 80,
+                value: 80, 
               },
               opacity: {
-                value: 0.5,
+                value: 0.3, 
               },
               shape: {
                 type: "circle",
               },
               size: {
-                value: { min: 1, max: 5 },
+                value: { min: 1, max: 3 }, 
               },
             },
             detectRetina: true,

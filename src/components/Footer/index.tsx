@@ -1,9 +1,10 @@
 "use client"
 import { motion, AnimatePresence } from "motion/react"
 import { FaSun, FaMoon } from "react-icons/fa"
-import { FiHome, FiUsers, FiGlobe, FiInfo } from "react-icons/fi"
+import { FiHome, FiUsers, FiInfo } from "react-icons/fi"
 import { useTheme } from "@/context/ThemeContext"
 import Image from "next/image"
+import { IoMdPlanet } from "react-icons/io"
 
 function Footer (): React.JSX.Element {
 
@@ -12,7 +13,7 @@ function Footer (): React.JSX.Element {
   const navigation = [
     { name: "Home", icon: FiHome },
     { name: "Characters", icon: FiUsers },
-    { name: "Planets", icon: FiGlobe },
+    { name: "Planets", icon: IoMdPlanet },
     { name: "About", icon: FiInfo },
   ]
 

@@ -9,19 +9,10 @@ import { useTheme } from "@/context/ThemeContext"
 function Hero(): React.JSX.Element {
 
   const { isDarkMode } = useTheme()
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3 } }
-  }
 
   return (
-
-    <div className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary">
-      <Header />
-
-      <main className="relative pt-32 pb-16">
+    <div className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary flex justify-center items-center">
+      <div className="relative mb-20">
         <div className="container mx-auto px-4">
           <MotionTransition position="right" className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 text-text-primary dark:text-dark-text-primary">
@@ -48,7 +39,7 @@ function Hero(): React.JSX.Element {
             </motion.button>
           </MotionTransition>
         </div>
-      </main>
+      </div>
     </div>
   )
 }

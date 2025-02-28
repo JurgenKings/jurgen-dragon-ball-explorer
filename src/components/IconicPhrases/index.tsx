@@ -98,7 +98,7 @@ function IconicPhrases (): React.JSX.Element {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0077BE] to-[#FF0000] p-4 flex items-center justify-center">
+    <div className="min-h-screen p-4 flex items-center justify-center">
       <div className="max-w-6xl w-full relative">
         <AnimatePresence mode="wait">
           <motion.div

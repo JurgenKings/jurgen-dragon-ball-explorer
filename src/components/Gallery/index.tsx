@@ -10,47 +10,47 @@ function Gallery(): React.JSX.Element {
   const images = [
     {
       id: 1,
-      src: "/images/10.jpg",
+      src: "/images/gallery-1.png",
       alt: "Nature landscape",
     },
     {
       id: 2,
-      src: "/images/11.jpg",
+      src: "/images/gallery-2.png",
       alt: "Urban architecture",
     },
     {
       id: 3,
-      src: "/images/4.jpg",
+      src: "/images/gallery-3.png",
       alt: "Mountain view",
     },
     {
       id: 4,
-      src: "/images/3.jpg",
+      src: "/images/gallery-4.jpg",
       alt: "Ocean sunset",
     },
     {
       id: 5,
-      src: "/images/5.jpg",
+      src: "/images/gallery-5.jpg",
       alt: "Forest path",
     },
     {
       id: 6,
-      src: "/images/6.jpg",
+      src: "/images/gallery-6.jpg",
       alt: "Desert landscape",
     },
     {
       id: 7,
-      src: "/images/7.jpg",
+      src: "/images/gallery-7.jpg",
       alt: "Cityscape night",
     },
     {
       id: 8,
-      src: "/images/8.jpg",
+      src: "/images/gallery-8.jpg",
       alt: "Waterfall view",
     },
     {
       id: 9,
-      src: "/images/9.jpg",
+      src: "/images/gallery-9.jpg",
       alt: "Snow peaks",
     },
   ]
