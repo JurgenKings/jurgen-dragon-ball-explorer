@@ -18,18 +18,18 @@ function Hero(): React.JSX.Element {
 
   return (
 
-    <div className={`min-h-screen transition-colors duration-300 bg-white dark:bg-black`}>
+    <div className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary">
       <Header />
 
       <main className="relative pt-32 pb-16">
         <div className="container mx-auto px-4">
           <MotionTransition position="right" className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-text-primary dark:text-dark-text-primary">
               Jurgen Dragon Ball Explorer
             </h1>
 
             <motion.p
-              className="text-xl md:text-2xl mb-12 opacity-90"
+              className="text-xl md:text-2xl mb-12 opacity-90 text-text-primary dark:text-dark-text-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.7 }}

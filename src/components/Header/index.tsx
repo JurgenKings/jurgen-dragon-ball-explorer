@@ -10,7 +10,6 @@ const navLinks = ["Inicio", "Personajes", "Planetas", "Acerca de"]
 function Header(): React.JSX.Element {
 
   const { isDarkMode, toggleIsDarkMode } = useTheme()
-  const [isLoaded, setIsLoaded] = useState(false)
 
   return (
     <MotionTransition position="bottom" className="w-full">
@@ -18,7 +17,7 @@ function Header(): React.JSX.Element {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <motion.img
-              src="https://images.unsplash.com/photo-1601574968106-b312ac309953"
+              src="/images/logo.png"
               alt="Logo"
               className="h-12 w-auto"
               whileHover={{ scale: 1.05 }}
@@ -29,7 +28,7 @@ function Header(): React.JSX.Element {
                 <motion.a
                   key={item}
                   href="#"
-                  className="text-lg font-semibold hover:text-[#FF6600] transition-colors"
+                  className="text-lg font-semibold hover:text-[#FF6600] transition-colors text-text-primary dark:text-dark-text-primary relative z-50"
                   whileHover={{ scale: 1.1 }}
                 >
                   {item}
@@ -38,7 +37,7 @@ function Header(): React.JSX.Element {
             </nav>
             <motion.button
               onClick={toggleIsDarkMode}
-              className="p-2 rounded-full bg-opacity-20 backdrop-blur-lg"
+              className="p-2 rounded-full bg-opacity-20 backdrop-blur-lg text-text-primary dark:text-dark-text-primary relative z-50"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
