@@ -14,7 +14,7 @@ function CharacterCard({ character, index }): React.JSX.Element {
     >
       <div className="relative h-[60%] overflow-hidden" >
         <motion.img
-          src={character.imageUrl}
+          src={character.image}
           alt={character.name}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.1 }}
@@ -28,7 +28,7 @@ function CharacterCard({ character, index }): React.JSX.Element {
 
         < div className="flex items-center space-x-2" >
           <GiPowerLightning className="text-[#48BB78] text-xl" />
-          <span className="text-[#4299E1]" > Base Ki: {character.baseKi} </span>
+          <span className="text-[#4299E1]" > Base Ki: {character.ki} </span>
         </div>
 
         < div className="space-y-2" >

@@ -4,47 +4,8 @@ import { AnimatePresence } from "motion/react"
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 import CharacterCard from "@/components/CharacterCard"
 
-const characters = [
-  {
-    id: 1,
-    name: "Goku",
-    baseKi: 9000,
-    affiliation: "Z Fighters",
-    race: "Saiyan",
-    gender: "Male",
-    imageUrl: "https://images.unsplash.com/photo-1635805737707-575885ab0820"
-  },
-  {
-    id: 2,
-    name: "Vegeta",
-    baseKi: 8500,
-    affiliation: "Z Fighters",
-    race: "Saiyan",
-    gender: "Male",
-    imageUrl: "https://images.unsplash.com/photo-1635805737707-575885ab0821"
-  },
-  {
-    id: 3,
-    name: "Gohan",
-    baseKi: 7500,
-    affiliation: "Z Fighters",
-    race: "Half-Saiyan",
-    gender: "Male",
-    imageUrl: "https://images.unsplash.com/photo-1635805737707-575885ab0822"
-  },
-  {
-    id: 4,
-    name: "Piccolo",
-    baseKi: 6500,
-    affiliation: "Z Fighters",
-    race: "Namekian",
-    gender: "Male",
-    imageUrl: "https://images.unsplash.com/photo-1635805737707-575885ab0823"
-  }
-]
+const TopCharacters = ({ characters }) => {
 
-const TopCharacters = () => {
-  
   const [currentIndex, setCurrentIndex] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
 
