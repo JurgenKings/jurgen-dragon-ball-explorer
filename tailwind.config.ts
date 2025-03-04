@@ -19,6 +19,8 @@ export default {
         "text-hover": "#e5e7eb",
         
         "db-orange": "#ff6600",
+        "db-blue": "#00bfff",
+        "db-yellow": "#ffd700",
 
         "dark-bg-hover": "#1f2937",
         "dark-bg-primary": "#111827",  // LISTO es = a tailwind gray-900

@@ -6,63 +6,51 @@ import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa"
 const quotes = [
   {
     id: 1,
-    quote: "I am the hope of the universe. I am the answer to all living things that cry out for peace.",
+    quote: "El poder viene en respuesta a una necesidad, no a un deseo. Tienes que crear esa necesidad",
     character: "Goku",
-    image: "https://images.unsplash.com/photo-1608889825103-eb5ed706fc64"
+    image: "/images/goku.jpg"
   },
   {
     id: 2,
-    quote: "I do not fear this new challenge. Rather like a true warrior I will rise to meet it.",
+    quote: "Un insecto sin emociones como tú nunca entenderá el amor, jamás comprenderás lo que significa proteger algo que amas.",
     character: "Vegeta",
-    image: "https://images.unsplash.com/photo-1608889825205-eebdb9fc5806"
+    image: "/images/vegeta.jpg"
   },
   {
     id: 3,
-    quote: "Power comes in response to a need, not a desire.",
+    quote: "Preferiría ser un mono sin cerebro que un monstruo sin corazón",
     character: "Goku",
-    image: "https://images.unsplash.com/photo-1608889825271-9a8c98af35f5"
+    image: "/images/goku-2.jpg"
   },
   {
-    id: 4,
-    quote: "You're about to find out what it's like to fight a real Super Saiyan... and I'm not talking about Goku.",
-    character: "Vegeta",
-    image: "https://images.unsplash.com/photo-1608889825452-d41736ba85ca"
+    id: 4, 
+    quote: "Yo no moriré, no importa que mi cuerpo sea destruido por completo. Mis deseos de pelear me levantarán porque son muy grandes",
+    character: "Gohan",
+    image: "/images/gohan.jpg"
   },
   {
     id: 5,
-    quote: "I will not let you destroy my world!",
+    quote: "Goku ha compartido con muchos y para ambos es algo invaluable. Al mismo tiempo eso es lo que le otorga fuerza. Se perfectamente que él jamás ha pensado que ha llegado hasta aquí gracias a su mérito personal.",
+    character: "Maestro Roshi",
+    image: "/images/roshi.jpg"
+  },
+  {
+    id: 6, 
+    quote: "Padre, eres tan fuerte y orgulloso, duro y frío como una roca. Pero en el fondo, tu corazón late como el mío. Sé cómo te sientes, soy tu hijo y siempre te querré.",
+    character: "Trunks",
+    image: "/images/trunks.jpg"
+  },
+  {
+    id: 7, 
+    quote: "Necesitas encontrar la motivación adecuada, eso es todo. Para mí es sencillo, solo tengo que pensar como los androides mataron a Piccolo y a Krillin, me siento horrible y ese dolor se convierte en ira.",
     character: "Gohan",
-    image: "https://images.unsplash.com/photo-1608889825505-d90687a37559"
-  },
-  {
-    id: 6,
-    quote: "You see when you take life, you live with the fear of revenge.",
-    character: "Piccolo",
-    image: "https://images.unsplash.com/photo-1608889825585-e8b1c75d97e4"
-  },
-  {
-    id: 7,
-    quote: "Your fate is the one you choose for yourself!",
-    character: "Master Roshi",
-    image: "https://images.unsplash.com/photo-1608889825668-4da760dce0c8"
+    image: "/images/gohan-2.jpg"
   },
   {
     id: 8,
-    quote: "Oh, you think you're being cute?",
-    character: "Frieza",
-    image: "https://images.unsplash.com/photo-1608889825745-9a3c526f5cf4"
-  },
-  {
-    id: 9,
-    quote: "I would rather be a brainless monkey than a heartless monster.",
-    character: "Goku",
-    image: "https://images.unsplash.com/photo-1608889825825-cd3ea32d1da3"
-  },
-  {
-    id: 10,
-    quote: "The more ridiculous the better.",
-    character: "Master Roshi",
-    image: "https://images.unsplash.com/photo-1608889825901-dc2f1c529d06"
+    quote: "Si quieres odiarme debes empezar por odiar tu destino,asi como lo hago yo.",
+    character: "Piccolo",
+    image: "/images/piccolo.jpg"
   }
 ]
 
@@ -76,7 +64,7 @@ function IconicPhrases (): React.JSX.Element {
     if (isPlaying) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % quotes.length)
-      }, 5000)
+      }, 8000)
     }
     return () => clearInterval(interval)
   }, [isPlaying])
@@ -98,7 +86,7 @@ function IconicPhrases (): React.JSX.Element {
   }
 
   return (
-    <div className="min-h-screen p-4 flex items-center justify-center">
+    <div className="p-4 flex items-center justify-center">
       <div className="max-w-6xl w-full relative">
         <AnimatePresence mode="wait">
           <motion.div
@@ -115,9 +103,6 @@ function IconicPhrases (): React.JSX.Element {
                 alt={quotes[currentIndex].character}
                 className="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg"
                 whileHover={{ scale: 1.05, rotate: 2 }}
-                onError={(e) => {
-                  e.target.src = "https://images.unsplash.com/photo-1608889825103-eb5ed706fc64"
-                }}
               />
               <div className="flex-1 text-center md:text-left">
                 <motion.h2

@@ -28,7 +28,7 @@ const TopCharacters = ({ characters }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#1A202C] p-8 flex flex-col items-center justify-center">
+    <div className="p-8 flex flex-col items-center justify-center">
       <div className="relative w-full max-w-7xl overflow-hidden">
         <div className="flex justify-center items-center">
           <button
@@ -42,7 +42,7 @@ const TopCharacters = ({ characters }) => {
             <AnimatePresence mode="wait">
               {characters.map((character, index) => {
                 const position = (index - currentIndex + characters.length) % characters.length
-                const isVisible = position >= 0 && position < 3
+                const isVisible = position >= 0 && position < 4
 
                 return isVisible ? (
                   <CharacterCard key={character.id} character={character} index={index} />
@@ -58,23 +58,7 @@ const TopCharacters = ({ characters }) => {
             <FiChevronRight size={24} />
           </button>
         </div>
-
-        <div className="flex justify-center mt-6 gap-2">
-          {characters.map((_, index) => (
-            <div
-              key={index}
-              className={`w-2 h-2 rounded-full ${index === currentIndex ? "bg-[#FFD700]" : "bg-[#4A5568]"}`}
-            />
-          ))}
-        </div>
       </div>
-
-      <button
-        onClick={() => setAutoPlay(!autoPlay)}
-        className="mt-6 px-4 py-2 bg-[#2D3748] text-[#FFD700] rounded-lg hover:bg-[#4A5568]"
-      >
-        {autoPlay ? "Pause" : "Auto Play"}
-      </button>
     </div>
   )
 }

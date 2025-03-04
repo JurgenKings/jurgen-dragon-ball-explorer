@@ -11,11 +11,10 @@ import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { IoMdPlanet } from "react-icons/io"
 
-const navLinks: INavLink[] = [
+export const navLinks: INavLink[] = [
   { name: "Inicio", href: "/", icon: HiHome },
   { name: "Personajes", href: "/personajes", icon: HiUserGroup },
   { name: "Planetas", href: "/planetas", icon: IoMdPlanet },
-  { name: "Acerca de", href: "/acerca-de", icon: HiInformationCircle },
 ]
 
 function Header(): React.JSX.Element {

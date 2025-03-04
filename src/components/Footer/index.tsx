@@ -5,17 +5,11 @@ import { FiHome, FiUsers, FiInfo } from "react-icons/fi"
 import { useTheme } from "@/context/ThemeContext"
 import Image from "next/image"
 import { IoMdPlanet } from "react-icons/io"
+import { navLinks } from "../Header"
 
-function Footer (): React.JSX.Element {
+function Footer(): React.JSX.Element {
 
   const { isDarkMode, toggleIsDarkMode } = useTheme()
-
-  const navigation = [
-    { name: "Home", icon: FiHome },
-    { name: "Characters", icon: FiUsers },
-    { name: "Planets", icon: IoMdPlanet },
-    { name: "About", icon: FiInfo },
-  ]
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -57,17 +51,16 @@ function Footer (): React.JSX.Element {
           </motion.div>
 
           <motion.nav variants={itemVariants}>
-            <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-              {navigation.map((item) => (
+            <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 relative z-50">
+              {navLinks.map((item) => (
                 <motion.li
                   key={item.name}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <button
-                    className={`flex items-center space-x-2 ${
-                      isDarkMode ? "text-white" : "text-gray-700"
-                    } hover:text-[#1E90FF] transition-colors duration-300`}
+                    className={`flex items-center space-x-2 ${isDarkMode ? "text-white" : "text-gray-700"
+                      } hover:text-[#1E90FF] transition-colors duration-300`}
                   >
                     <item.icon className="h-5 w-5" />
                     <span>{item.name}</span>
@@ -82,32 +75,26 @@ function Footer (): React.JSX.Element {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleIsDarkMode}
-              className="p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+              className="p-2 rounded-full relative z-50"
               aria-label="Toggle dark mode"
             >
-              <AnimatePresence mode="wait">
-                {isDarkMode ? (
-                  <motion.div
-                    key="moon"
-                    initial={{ rotate: -90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: 90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <FaMoon className="h-6 w-6 text-[#FFD700]" />
-                  </motion.div>
+              {isDarkMode ?
+                (
+                  <Image
+                    src="/images/sun.png"
+                    alt="Sun"
+                    width={40}
+                    height={40}
+                  />
                 ) : (
-                  <motion.div
-                    key="sun"
-                    initial={{ rotate: 90, opacity: 0 }}
-                    animate={{ rotate: 0, opacity: 1 }}
-                    exit={{ rotate: -90, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <FaSun className="h-6 w-6 text-[#FF0000]" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                  <Image
+                    src="/images/moon.png"
+                    alt="Moon"
+                    width={40}
+                    height={40}
+                  />
+                )
+              }
             </motion.button>
           </motion.div>
         </div>

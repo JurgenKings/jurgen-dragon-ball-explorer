@@ -2,20 +2,30 @@
 import React, { useState } from "react"
 import { motion } from "motion/react"
 import { FaLongArrowAltRight } from "react-icons/fa"
-import Header from "@/components/Header"
 import MotionTransition from "@/components/MotionTransition"
-import { useTheme } from "@/context/ThemeContext"
+import { useRouter } from "next/navigation"
+import { FaRocket } from "react-icons/fa6"
+import { NextFont } from "next/dist/compiled/@next/font"
 
-function Hero(): React.JSX.Element {
+interface HeroProps {
+  font: NextFont;
+}
 
-  const { isDarkMode } = useTheme()
+function Hero({ font }: HeroProps): React.JSX.Element {
+
+  const router = useRouter()
+  const [isHovered, setIsHovered] = useState<boolean>(false)
+
+  const handleNavigationCharacters = () => {
+    router.push("/personajes")
+  }
 
   return (
     <div className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary flex justify-center items-center">
       <div className="relative mb-20">
         <div className="container mx-auto px-4">
           <MotionTransition position="right" className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 text-text-primary dark:text-dark-text-primary">
+            <h1 className={`text-5xl md:text-7xl font-bold leading-tight mb-8 text-db-orange dark:text-db-blue ${font.className}`}>
               Jurgen Dragon Ball Explorer
             </h1>
 
@@ -29,13 +39,21 @@ function Hero(): React.JSX.Element {
             </motion.p>
 
             <motion.button
-              className={`px-8 py-4 text-lg font-bold rounded-full ${isDarkMode ? "bg-[#00BFFF]" : "bg-[#FF6600]"} text-white shadow-lg flex items-center justify-center mx-auto space-x-2 hover:shadow-2xl transition-shadow`}
+              className="px-8 py-4 text-lg font-bold rounded-full bg-db-orange dark:bg-db-blue text-white shadow-lg flex items-center justify-center mx-auto space-x-2 hover:shadow-2xl transition-shadow"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleNavigationCharacters}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
               <span>Explorar el Universo</span>
 
-              <FaLongArrowAltRight />
+              <motion.span
+                animate={{ x: isHovered ? 5 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <FaRocket className="text-xl" />
+              </motion.span>
             </motion.button>
           </MotionTransition>
         </div>
