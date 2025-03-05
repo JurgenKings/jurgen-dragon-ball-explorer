@@ -8,4 +8,5 @@ export const CHARACTERS_URL = {
   allDragonBallCharacters: `${domain2}/dragonball`,
   allDragonBallZCharacters: `${domain2}/dragonballz`,
   allDragonBallGTCharacters: `${domain2}/dragonballgt`,
+  allDragonBallSuperCharacters: `${domain2}/dragonballsuper`,
 }

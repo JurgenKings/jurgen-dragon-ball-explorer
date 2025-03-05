@@ -48,7 +48,7 @@ const quotes = [
   },
   {
     id: 8,
-    quote: "Si quieres odiarme debes empezar por odiar tu destino,asi como lo hago yo.",
+    quote: "Si quieres odiarme debes empezar por odiar tu destino, asi como lo hago yo.",
     character: "Piccolo",
     image: "/images/piccolo.jpg"
   }

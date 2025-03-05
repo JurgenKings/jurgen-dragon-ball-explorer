@@ -52,7 +52,7 @@ function Header(): React.JSX.Element {
                 <MagneticEffect className="flex items-center space-x-2 relative z-50" key={item.name}>
                   <Link
                     href={item.href}
-                    className={`flex items-center space-x-2 text-lg font-semibold hover:text-db-orange dark:hover:text-db-orange transition-colors text-text-primary dark:text-dark-text-primary relative z-50 ${item.href === url ? "text-db-orange dark:text-db-orange" : ""}`}
+                    className={`flex items-center space-x-2 text-lg font-semibold hover:text-db-orange dark:hover:text-db-blue transition-colors relative z-50 ${item.href === url ? "text-db-orange dark:text-db-blue" : "text-text-primary dark:text-dark-text-primary"}`}
                     aria-label={`Ir a la página ${item.name}`}
                     aria-current={item.href === url ? "page" : undefined}
                     aria-expanded={item.href === url ? "true" : undefined}

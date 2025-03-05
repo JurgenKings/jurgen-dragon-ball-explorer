@@ -1,18 +1,59 @@
 "use client"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "motion/react"
 import CharacterCard from "@/components/CharacterCard"
-import SearchBarWithActions from "@/components/SearchBarWithActions"
+import { getDragonBallGTCharacters, getDragonBallSuperCharacters, getDragonBallZCharacters, getDragons } from "@/services/characters/character"
+import { ICharacter } from "@/interfaces/ICharacter"
+import SearchBar from "@/components/SearchBarWithActions"
 
+interface CharactersProps {
+  initialCharacters: ICharacter[]
+}
 
-function Characters({ characters }): React.JSX.Element {
+function Characters({ initialCharacters }: CharactersProps): React.JSX.Element {
 
-  const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false)
   const [searchQuery, setSearchQuery] = useState<string>("")
 
-  const handleFilterToggle = () => {
-    setIsFilterOpen(!isFilterOpen)
+  const [characters, setCharacters] = useState<ICharacter[]>(initialCharacters)
+  const [filteredCharacters, setFilteredCharacters] = useState<ICharacter[]>(initialCharacters)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [currentSagaIndex, setCurrentSagaIndex] = useState<number>(0)
+  const sagas = [
+    getDragonBallZCharacters,
+    getDragonBallGTCharacters,
+    getDragonBallSuperCharacters,
+    getDragons
+  ]
+
+  const loadMoreCharacters = async () => {
+
+    if (loading || currentSagaIndex >= sagas.length) return
+
+    try {
+      setLoading(true)
+
+      const newCharacters = await sagas[currentSagaIndex]()
+      setCharacters((prev) => [...prev, ...newCharacters])
+      setFilteredCharacters((prev) => [...prev, ...newCharacters])
+
+      setCurrentSagaIndex((prev) => prev + 1)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false)
+    }
   }
+
+  useEffect(() => {
+    if (searchQuery.length >= 2) {
+      const filtered = characters.filter(character =>
+        character.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+      setFilteredCharacters(filtered)
+    } else {
+      setFilteredCharacters(characters)
+    }
+  }, [searchQuery, characters])
 
   return (
     <div className="min-h-screen bg-[#1A202C]">
@@ -20,28 +61,33 @@ function Characters({ characters }): React.JSX.Element {
         <div className="max-w-[1440px] mx-auto">
           <div className="w-full max-w-[1440px] mx-auto px-4 py-6 rounded-lg lg:rounded-b-none">
             <div className="flex flex-col space-y-4 md:space-y-6">
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-6"
-              >
-                Lista de mis productos
-              </motion.h1>
 
-              <SearchBarWithActions
-                handleFilterToggle={handleFilterToggle}
+              <SearchBar
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
+                placeholder="Buscar personajes..."
               />
 
               <motion.div
                 layout
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mx-auto"
               >
-                {characters?.map((character) => (
+                {filteredCharacters?.map((character) => (
                   <CharacterCard key={character.id} character={character} />
                 ))}
               </motion.div>
+
+              {loading && <div className="text-center text-text-primary dark:text-dark-text-primary">Cargando...</div>}
+
+              {currentSagaIndex < sagas.length && (
+                <button
+                  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded relative z-50"
+                  disabled={loading}
+                  onClick={loadMoreCharacters}
+                >
+                  Cargar más personajes
+                </button>
+              )}
             </div>
           </div>
         </div>

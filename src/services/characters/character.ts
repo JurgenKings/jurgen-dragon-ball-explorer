@@ -107,3 +107,21 @@ export const getDragonBallGTCharacters = async () => {
     }
   }
 }
+
+export const getDragonBallSuperCharacters = async () => {
+  try {
+    const apiUrl = CHARACTERS_URL.allDragonBallSuperCharacters
+
+    const response = await fetch(apiUrl, {
+      next: { revalidate: 60 * 60 * 24 }
+    })
+  
+    const characters = await response.json()
+
+    return characters
+  } catch (error) {
+    if (error) {
+      return []
+    }
+  }
+}

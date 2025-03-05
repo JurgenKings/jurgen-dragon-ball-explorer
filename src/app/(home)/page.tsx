@@ -7,7 +7,7 @@ import Hero from "@/components/Hero"
 import IconicPhrases from "@/components/IconicPhrases"
 import TopCharacters from "@/components/TopCharacters"
 import TransitionPage from "@/components/TransitionPage"
-import { getDragonBallCharacters, getDragonBallGTCharacters, getDragonBallZCharacters, getDragons, getSaiyanCharacters } from "@/services/characters/character"
+import { getDragonBallCharacters, getDragonBallGTCharacters, getDragonBallSuperCharacters, getDragonBallZCharacters, getDragons, getSaiyanCharacters } from "@/services/characters/character"
 import Subtitle from "@/components/Subtitle"
 
 const anton = Anton({
@@ -22,6 +22,7 @@ async function Home() {
   const dragonBallCharacters = await getDragonBallCharacters()
   const dragonBallZCharacters = await getDragonBallZCharacters()
   const dragonBallGTCharacters = await getDragonBallGTCharacters()
+  const dragonBallSuperCharacters = await getDragonBallSuperCharacters()
 
   return (
     <>
@@ -36,6 +37,8 @@ async function Home() {
         <TopCharacters characters={dragonBallZCharacters} />
         <Subtitle className="text-center my-8">Conoce a los Guerreros de Dragon Ball GT</Subtitle>
         <TopCharacters characters={dragonBallGTCharacters} />
+        <Subtitle className="text-center my-8">¡Explora Dragon Ball Super!</Subtitle>
+        <TopCharacters characters={dragonBallSuperCharacters} />
         <Subtitle className="text-center my-8">¡Los Legendarios Dragones!</Subtitle>
         <TopCharacters characters={dragons} />
         <Subtitle className="text-center my-8">¡Revive los Momentos Más Épicos!</Subtitle>

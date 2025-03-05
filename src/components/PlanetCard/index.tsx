@@ -1,13 +1,13 @@
 "use client"
 import React from "react"
 import { motion } from "motion/react"
-import { IoMdPlanet } from "react-icons/io"
+import { GiExplodingPlanet } from "react-icons/gi"
 import LimitLineText from "@/components/LimitLineText"
 
-function CharacterCard({ character }): React.JSX.Element {
+function PlanetCard({ planet }): React.JSX.Element {
 
   return (
-    <motion.div className="relative w-[320px] h-[480px] bg-[#2D3748] rounded-xl overflow-hidden"
+    <motion.div className="relative w-[320px] h-[380px] bg-[#2D3748] rounded-xl overflow-hidden"
       whileHover={{ scale: 1.05, rotateY: 5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -15,8 +15,8 @@ function CharacterCard({ character }): React.JSX.Element {
     >
       <div className="relative h-[60%] overflow-hidden" >
         <motion.img
-          src={character.image}
-          alt={character.name}
+          src={planet.image}
+          alt={planet.name}
           className="w-full h-full object-cover"
           whileHover={{ scale: 1.1 }}
           loading="lazy"
@@ -26,24 +26,18 @@ function CharacterCard({ character }): React.JSX.Element {
 
       <div className="p-6 space-y-4" >
         <h3 className="text-db-yellow text-2xl font-bold" >
-          <LimitLineText text={character.name} limit={1} />
+          <LimitLineText text={planet.name} limit={1} />
         </h3>
 
         <div className="space-y-2" >
           <div className="flex items-center space-x-2" >
-            <IoMdPlanet className="text-db-orange text-xl" />
+            <GiExplodingPlanet className="text-db-orange text-xl" />
             <LimitLineText
               className="text-gray-300"
-              text={character.planet ? character.planet : "Desconocido"}
+              text={planet.isDestroyed ? "Destruido" : "Vivo"}
               limit={1}
             />
           </div>
-          <p className="text-gray-400">
-            <LimitLineText text={`Raza: ${character.race ? character.race : "Desconocido"}`} limit={1} />
-          </p>
-          <p className="text-gray-400">
-            <LimitLineText text={`Genero: ${character.genre ? character.genre : "Desconocido"}`} limit={1} />
-          </p>
         </div>
       </div>
 
@@ -52,4 +46,4 @@ function CharacterCard({ character }): React.JSX.Element {
   )
 }
 
-export default CharacterCard
+export default PlanetCard
