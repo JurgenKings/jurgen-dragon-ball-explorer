@@ -7,7 +7,7 @@ import LimitLineText from "@/components/LimitLineText"
 function CharacterCard({ character }): React.JSX.Element {
 
   return (
-    <motion.div className="relative w-[320px] h-[480px] bg-[#2D3748] rounded-xl overflow-hidden"
+    <motion.div className="relative w-[320px] h-[520px] bg-[#2D3748] rounded-xl overflow-hidden"
       whileHover={{ scale: 1.05, rotateY: 5 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}

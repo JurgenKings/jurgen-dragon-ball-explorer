@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <ThemeProvider>
-          <div className="bg-bg-primary dark:bg-dark-bg-primary">
+          <div className="bg-bg-primary dark:bg-dark-bg-primary overflow-x-hidden">
             <Header />
             <main>
               {children}

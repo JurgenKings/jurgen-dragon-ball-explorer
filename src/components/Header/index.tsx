@@ -42,17 +42,17 @@ function Header(): React.JSX.Element {
               <motion.img
                 src="/images/logo.png"
                 alt="Logo"
-                className="h-12 w-auto relative z-50"
+                className="h-12 w-auto relative z-10"
                 whileHover={{ scale: 1.10 }}
                 whileTap={{ scale: 0.95 }}
               />
             </button>
             <nav className="hidden md:flex space-x-8">
               {navLinks.map((item) => (
-                <MagneticEffect className="flex items-center space-x-2 relative z-50" key={item.name}>
+                <MagneticEffect className="flex items-center space-x-2 relative z-10" key={item.name}>
                   <Link
                     href={item.href}
-                    className={`flex items-center space-x-2 text-lg font-semibold hover:text-db-orange dark:hover:text-db-blue transition-colors relative z-50 ${item.href === url ? "text-db-orange dark:text-db-blue" : "text-text-primary dark:text-dark-text-primary"}`}
+                    className={`flex items-center space-x-2 text-lg font-semibold hover:text-db-orange dark:hover:text-db-blue transition-colors relative z-10 ${item.href === url ? "text-db-orange dark:text-db-blue" : "text-text-primary dark:text-dark-text-primary"}`}
                     aria-label={`Ir a la página ${item.name}`}
                     aria-current={item.href === url ? "page" : undefined}
                     aria-expanded={item.href === url ? "true" : undefined}
@@ -64,10 +64,10 @@ function Header(): React.JSX.Element {
                 </MagneticEffect>
               ))}
             </nav>
-            <MagneticEffect className="flex items-center space-x-2 rounded-full relative z-50">
+            <MagneticEffect className="flex items-center space-x-2 rounded-full relative z-10">
               <motion.button
                 onClick={toggleIsDarkMode}
-                className="p-2 rounded-full text-text-primary dark:text-dark-text-primary relative z-50"
+                className="p-2 rounded-full text-text-primary dark:text-dark-text-primary relative z-10"
                 whileHover={{ scale: 1.5 }}
                 whileTap={{ scale: 0.9 }}
               >

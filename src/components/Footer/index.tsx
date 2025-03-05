@@ -51,7 +51,7 @@ function Footer(): React.JSX.Element {
           </motion.div>
 
           <motion.nav variants={itemVariants}>
-            <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 relative z-50">
+            <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 relative z-10">
               {navLinks.map((item) => (
                 <motion.li
                   key={item.name}
@@ -75,7 +75,7 @@ function Footer(): React.JSX.Element {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={toggleIsDarkMode}
-              className="p-2 rounded-full relative z-50"
+              className="p-2 rounded-full relative z-10"
               aria-label="Toggle dark mode"
             >
               {isDarkMode ?
@@ -104,11 +104,25 @@ function Footer(): React.JSX.Element {
           className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-sm text-text-primary dark:text-dark-text-primary">
-              Page designed by Jurgen Kings
+            <p className="text-sm text-text-primary dark:text-dark-text-primary relative z-10">
+              <a
+                href="https://jurgen-kings.vercel.app"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Ir a la página de Jurgen Kings"
+              >
+                Página diseñada por Jurgen Kings
+              </a>
             </p>
-            <p className="text-sm text-text-primary dark:text-dark-text-primary">
-              Powered by Dragon Ball API
+            <p className="text-sm text-text-primary dark:text-dark-text-primary relative z-10">
+              <a
+                href="https://www.dragonballapi.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Ir a la página de Dragon Ball API"
+              >
+                Powered by Dragon Ball API
+              </a>
             </p>
           </div>
         </motion.div>

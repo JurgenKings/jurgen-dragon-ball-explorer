@@ -5,8 +5,10 @@ import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { useTheme } from "@/context/ThemeContext"
 
 function CoverParticles() {
-  const [init, setInit] = useState<boolean>(false)
+
   const { isDarkMode } = useTheme()
+
+  const [init, setInit] = useState<boolean>(false)
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -69,7 +71,7 @@ function CoverParticles() {
                 density: {
                   enable: true,
                 },
-                value: 80, 
+                value: 90, 
               },
               opacity: {
                 value: 0.3, 

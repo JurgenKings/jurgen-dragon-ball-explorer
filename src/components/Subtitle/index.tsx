@@ -13,7 +13,7 @@ function Subtitle({ children, className }: SubtitleProps): React.JSX.Element {
   return (
     <MotionTransition position="right">
       <motion.h2
-        className={`text-4xl lg:text-6xl font-bold text-db-orange dark:text-db-blue leading-tight ${className}`}
+        className={`text-4xl lg:text-6xl font-bold text-db-orange dark:text-db-blue leading-tight relative z-10 ${className}`}
         whileHover={{ scale: 1.02 }}
       >
         {children}

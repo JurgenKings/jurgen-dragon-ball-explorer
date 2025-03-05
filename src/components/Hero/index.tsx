@@ -1,11 +1,10 @@
 "use client"
 import React, { useState } from "react"
+import { NextFont } from "next/dist/compiled/@next/font"
 import { motion } from "motion/react"
-import { FaLongArrowAltRight } from "react-icons/fa"
-import MotionTransition from "@/components/MotionTransition"
 import { useRouter } from "next/navigation"
 import { FaRocket } from "react-icons/fa6"
-import { NextFont } from "next/dist/compiled/@next/font"
+import MotionTransition from "@/components/MotionTransition"
 
 interface HeroProps {
   font: NextFont;
@@ -14,6 +13,7 @@ interface HeroProps {
 function Hero({ font }: HeroProps): React.JSX.Element {
 
   const router = useRouter()
+
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
   const handleNavigationCharacters = () => {
@@ -21,11 +21,14 @@ function Hero({ font }: HeroProps): React.JSX.Element {
   }
 
   return (
-    <div className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary flex justify-center items-center">
+    <section className="min-h-screen transition-colors duration-300 bg-bg-primary dark:bg-dark-bg-primary flex justify-center items-center">
       <div className="relative mb-20">
         <div className="container mx-auto px-4">
           <MotionTransition position="right" className="max-w-4xl mx-auto text-center">
-            <h1 className={`text-5xl md:text-7xl font-bold leading-tight mb-8 text-db-orange dark:text-db-blue ${font.className}`}>
+            <h1 
+              className={`text-5xl md:text-7xl font-bold leading-tight mb-8 text-db-orange dark:text-db-blue ${font.className}`}
+              aria-label="Jurgen Dragon Ball Explorer"
+            >
               Jurgen Dragon Ball Explorer
             </h1>
 
@@ -39,7 +42,8 @@ function Hero({ font }: HeroProps): React.JSX.Element {
             </motion.p>
 
             <motion.button
-              className="px-8 py-4 text-lg font-bold rounded-full bg-db-orange dark:bg-db-blue text-white shadow-lg flex items-center justify-center mx-auto space-x-2 hover:shadow-2xl transition-shadow"
+              className="px-8 py-4 text-lg font-bold rounded-full bg-orange-700 dark:bg-blue-700 text-white dark:text-dark-text-primary shadow-sm flex items-center justify-center mx-auto space-x-2 hover:shadow-2xl transition-shadow hover:shadow-orange-500/50 dark:hover:shadow-blue-500/50"
+              aria-label="Ir a personajes"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleNavigationCharacters}
@@ -52,13 +56,13 @@ function Hero({ font }: HeroProps): React.JSX.Element {
                 animate={{ x: isHovered ? 5 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <FaRocket className="text-xl" />
+                <FaRocket className="text-xl" aria-hidden={true} />
               </motion.span>
             </motion.button>
           </MotionTransition>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -8,7 +8,7 @@ function TransitionPage(): React.JSX.Element {
     <AnimatePresence mode="wait">
       <div>
         <motion.div
-          className="fixed bottom-full left-0 right-0 w-screen h-screen z-50 bg-[#aeca46]"
+          className="fixed bottom-full left-0 right-0 w-screen h-screen z-50 bg-db-yellow"
           variants={transitionVariantsPage}
           initial="initial"
           animate="animate"
