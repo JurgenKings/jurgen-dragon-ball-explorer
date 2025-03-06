@@ -1,11 +1,11 @@
-# ESTO ES UN PROYECTO DE PARA EXPLORAR LOS PERSONAJES Y PLANETAS DE DRAGON BALL
+# ESTO ES UN PROYECTO PARA EXPLORAR LOS PERSONAJES Y PLANETAS DE DRAGON BALL
 
 ## 🚀 Tecnologías
 
 - Next.js 
 - Tailwind CSS
 - TypeScript
-- Motion
+- Motion (Framer Motion)
 
 ## 📝 Instrucciones
 

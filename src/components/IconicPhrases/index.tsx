@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react"
+import Image from "next/image"
 import { motion, AnimatePresence } from "motion/react"
 import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa6"
 
@@ -106,11 +107,12 @@ function IconicPhrases (): React.JSX.Element {
             className="relative rounded-xl overflow-hidden shadow-2xl bg-bg-hover dark:bg-dark-bg-hover pb-4 md:pb-0"
           >
             <div className="flex flex-col md:flex-row items-center p-8 gap-8">
-              <motion.img
+              <Image
                 src={quotes[currentIndex].image}
                 alt={quotes[currentIndex].character}
-                className="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg"
-                whileHover={{ scale: 1.05, rotate: 2 }}
+                className="w-64 h-64 md:w-96 md:h-96 object-cover rounded-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-300"
+                width={512}
+                height={512}
               />
               <div className="flex-1 text-center md:text-left">
                 <motion.h2

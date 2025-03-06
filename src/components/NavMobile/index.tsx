@@ -1,11 +1,11 @@
 "use client"
 import React, { useEffect } from "react"
-import { useTheme } from "@/context/ThemeContext"
-import { AnimatePresence, motion } from "motion/react"
-import { INavLink } from "@/interfaces/INavLink"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useTheme } from "@/context/ThemeContext"
+import { AnimatePresence, motion } from "motion/react"
+import { INavLink } from "@/interfaces/INavLink"
 
 interface NavMobileProps {
   isMenuOpen: boolean;

@@ -1,23 +1,5 @@
 import { CHARACTERS_URL } from "./urls"
 
-export const getCharacters = async () => {
-  try {
-    const apiUrl = CHARACTERS_URL.all
-
-    const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
-    })
-
-    const characters = await response.json()
-
-    return characters
-  } catch (error) {
-    if (error) {
-      return []
-    }
-  }
-}
-
 export const getCharacter = async (id: number) => {
   try {
     let apiUrl = ""
@@ -29,7 +11,7 @@ export const getCharacter = async (id: number) => {
     else if (id >= 134 && id <= 236) apiUrl = CHARACTERS_URL.singlesuper(id)
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const character = await response.json()
@@ -42,30 +24,12 @@ export const getCharacter = async (id: number) => {
   }
 }
 
-export const getSaiyanCharacters = async () => {
-  try {
-    const apiUrl = CHARACTERS_URL.allSaiyan
-
-    const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
-    })
-
-    const characters = await response.json()
-
-    return characters
-  } catch (error) {
-    if (error) {
-      return []
-    }
-  }
-}
-
 export const getDragons = async () => {
   try {
     const apiUrl = CHARACTERS_URL.allDragons
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const characters = await response.json()
@@ -83,7 +47,7 @@ export const getDragonBallCharacters = async () => {
     const apiUrl = CHARACTERS_URL.allDragonBallCharacters
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const characters = await response.json()
@@ -101,7 +65,7 @@ export const getDragonBallZCharacters = async () => {
     const apiUrl = CHARACTERS_URL.allDragonBallZCharacters
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const characters = await response.json()
@@ -119,7 +83,7 @@ export const getDragonBallGTCharacters = async () => {
     const apiUrl = CHARACTERS_URL.allDragonBallGTCharacters
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const characters = await response.json()
@@ -137,7 +101,7 @@ export const getDragonBallSuperCharacters = async () => {
     const apiUrl = CHARACTERS_URL.allDragonBallSuperCharacters
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
 
     const characters = await response.json()

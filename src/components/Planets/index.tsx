@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import { motion } from "motion/react"
-import SearchBar from "@/components/SearchBarWithActions"
+import SearchBar from "@/components/SearchBar"
 import { IPlanet } from "@/interfaces/IPlanet"
 import PlanetCard from "@/components/PlanetCard"
 
@@ -13,21 +13,19 @@ function Planets({ initialPlanets }: PlanetsProps): React.JSX.Element {
 
   const [searchQuery, setSearchQuery] = useState<string>("")
 
-  const [planets, setPlanets] = useState<IPlanet[]>(initialPlanets)
   const [filteredPlanets, setFilteredPlanets] = useState<IPlanet[]>(initialPlanets)
-  const [loading, setLoading] = useState<boolean>(false)
 
   useEffect(() => {
     if (searchQuery.length >= 2) {
-      const filtered = planets.filter(planet =>
+      const filtered = initialPlanets.filter(planet =>
         planet.name.toLowerCase().includes(searchQuery.toLowerCase())
       )
       setFilteredPlanets(filtered)
 
     } else {
-      setFilteredPlanets(planets)
+      setFilteredPlanets(initialPlanets)
     }
-  }, [searchQuery, planets])
+  }, [searchQuery, initialPlanets])
 
   return (
     <div className="min-h-screen bg-[#1A202C]">
@@ -50,8 +48,6 @@ function Planets({ initialPlanets }: PlanetsProps): React.JSX.Element {
                   <PlanetCard key={planet.id} planet={planet} />
                 ))}
               </motion.div>
-
-              {loading && <div className="text-center text-text-primary dark:text-dark-text-primary">Cargando...</div>}
             </div>
           </div>
         </div>

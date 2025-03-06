@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 import CharacterCard from "@/components/CharacterCard"
 import { getDragonBallGTCharacters, getDragonBallSuperCharacters, getDragonBallZCharacters, getDragons } from "@/services/characters/character"
 import { ICharacter } from "@/interfaces/ICharacter"
-import SearchBar from "@/components/SearchBarWithActions"
+import SearchBar from "@/components/SearchBar"
 
 interface CharactersProps {
   initialCharacters: ICharacter[]
@@ -38,7 +38,7 @@ function Characters({ initialCharacters }: CharactersProps): React.JSX.Element {
 
       setCurrentSagaIndex((prev) => prev + 1)
     } catch (error) {
-      console.error(error)
+      if (error) return
     } finally {
       setLoading(false)
     }

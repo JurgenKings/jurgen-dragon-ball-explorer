@@ -14,6 +14,7 @@ function CharacterDetail({ character }: CharacterDetailProps): React.JSX.Element
 
   const [isExpanded, setIsExpanded] = useState<boolean>(false)
   const [isBiographyExpanded, setIsBiographyExpanded] = useState<boolean>(false)
+  const [imageErrors, setImageErrors] = useState<boolean[]>(new Array(character.transformations.length).fill(false))
 
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -89,34 +90,42 @@ function CharacterDetail({ character }: CharacterDetailProps): React.JSX.Element
           </motion.button>
         </motion.div>
 
-        {character.transformations[0].image && (
+        {(character?.transformations[0]?.image || character?.transformations[0]?.title) && (
           <motion.div className="mb-8">
             <h2 className="text-2xl font-bold mb-4">
               Transformaciones
             </h2>
             <div className="flex overflow-x-auto gap-4 pb-4">
-              {character.transformations.map((transform, index) => (
-                <motion.div
-                  key={index}
-                  className="flex-shrink-0 w-72 bg-bg-hover dark:bg-dark-bg-hover rounded-lg overflow-hidden"
-                >
-                  <Image
-                    src={transform.image ? transform.image : "/images/not-found.jpg"}
-                    alt={transform.title}
-                    className="w-full h-60 object-cover trasform hover:scale-110 transition-transform duration-300"
-                    width={512}
-                    height={512}
-                  />
-                  <div className="p-4">
-                    <h3 className="text-xl font-bold text-db-orange dark:text-db-yellow">
-                      {transform.title}
-                    </h3>
-                    <p className="text-sm mt-2 text-text-primary dark:text-dark-text-primary">
-                      {transform.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
+              {character.transformations.map((transform, index) => {
+
+                return (
+                  <motion.div
+                    key={index}
+                    className="flex-shrink-0 w-72 bg-bg-hover dark:bg-dark-bg-hover rounded-lg overflow-hidden"
+                  >
+                    <Image
+                      src={imageErrors[index] || !transform.image ? "/images/not-found.jpg" : transform.image}
+                      alt={transform.title ? transform.title : "Imagen sin título"}
+                      className="w-full h-60 object-cover transform hover:scale-110 transition-transform duration-300"
+                      width={512}
+                      height={512}
+                      onError={() => {
+                        const newImageErrors = [...imageErrors]
+                        newImageErrors[index] = true
+                        setImageErrors(newImageErrors)
+                      }}
+                    />
+                    <div className="p-4">
+                      <h3 className="text-xl font-bold text-db-orange dark:text-db-yellow">
+                        {transform.title}
+                      </h3>
+                      <p className="text-sm mt-2 text-text-primary dark:text-dark-text-primary">
+                        {transform.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
           </motion.div>
         )}

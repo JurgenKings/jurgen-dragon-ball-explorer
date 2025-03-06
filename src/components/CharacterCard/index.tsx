@@ -5,6 +5,7 @@ import { motion } from "motion/react"
 import { IoMdPlanet } from "react-icons/io"
 import LimitLineText from "@/components/LimitLineText"
 import { ICharacter } from "@/interfaces/ICharacter"
+import Image from "next/image"
 
 interface CharacterCardProps {
   character: ICharacter;
@@ -21,12 +22,13 @@ function CharacterCard({ character }: CharacterCardProps): React.JSX.Element {
     >
       <div className="relative h-[60%] overflow-hidden">
         <Link href={`/personajes/detalle/${character.id}`}>
-          <motion.img
+          <Image
             src={character.image}
             alt={character.name}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.1 }}
+            className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
             loading="lazy"
+            width={512}
+            height={512}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-bg-hover to-transparent" />
         </Link>

@@ -11,7 +11,7 @@ export default {
     extend: {
       colors: {
         "bg-hover": "#e5e7eb",
-        "bg-primary": "#f9fafb", //LISTO
+        "bg-primary": "#f9fafb",
         "bg-darker": "#9ca3af",  
         "text-darker": "#9ca3af",
         "text-primary": "#363b45",  

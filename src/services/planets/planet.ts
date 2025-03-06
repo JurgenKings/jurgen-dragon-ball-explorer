@@ -5,7 +5,7 @@ export const getAllPlanets = async () => {
     const apiUrl = PLANETS_URL.all
 
     const response = await fetch(apiUrl, {
-      next: { revalidate: 60 * 60 * 24 }
+      next: { revalidate: 60 * 60 * 24 * 7 }
     })
   
     const planets = await response.json()

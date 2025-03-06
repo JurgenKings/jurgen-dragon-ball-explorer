@@ -48,7 +48,7 @@ function Footer(): React.JSX.Element {
   }
 
   return (
-    <footer className="w-full py-8 bg-bg-hover dark:bg-dark-bg-hover" >
+    <footer className="w-full py-8 bg-bg-hover dark:bg-dark-bg-hover relative z-10" >
       <motion.div
         initial="hidden"
         animate="visible"

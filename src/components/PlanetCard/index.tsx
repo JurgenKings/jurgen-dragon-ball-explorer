@@ -3,8 +3,14 @@ import React from "react"
 import { motion } from "motion/react"
 import { GiExplodingPlanet } from "react-icons/gi"
 import LimitLineText from "@/components/LimitLineText"
+import Image from "next/image"
+import { IPlanet } from "@/interfaces/IPlanet"
 
-function PlanetCard({ planet }): React.JSX.Element {
+interface PlanetCardProps {
+  planet: IPlanet;
+}
+
+function PlanetCard({ planet }: PlanetCardProps): React.JSX.Element {
 
   return (
     <motion.div className="relative w-[320px] h-[600px] bg-bg-hover dark:bg-dark-bg-hover rounded-xl overflow-hidden"
@@ -14,12 +20,13 @@ function PlanetCard({ planet }): React.JSX.Element {
       transition={{ duration: 0.3 }}
     >
       <div className="relative h-[50%] overflow-hidden">
-        <motion.img
+        <Image
           src={planet.image}
           alt={planet.name}
-          className="w-full h-full object-cover"
-          whileHover={{ scale: 1.1 }}
+          className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-300"
           loading="lazy"
+          width={512}
+          height={512}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-bg-hover to-transparent" />
       </div>
