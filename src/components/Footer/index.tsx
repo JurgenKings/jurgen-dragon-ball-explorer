@@ -6,9 +6,13 @@ import { useTheme } from "@/context/ThemeContext"
 import Image from "next/image"
 import { IoMdPlanet } from "react-icons/io"
 import { navLinks } from "../Header"
+import Link from "next/link"
+import MagneticEffect from "../MagneticEffect"
+import { usePathname } from "next/navigation"
 
 function Footer(): React.JSX.Element {
 
+  const url = usePathname()
   const { isDarkMode, toggleIsDarkMode } = useTheme()
 
   const containerVariants = {
@@ -51,23 +55,23 @@ function Footer(): React.JSX.Element {
           </motion.div>
 
           <motion.nav variants={itemVariants}>
-            <ul className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 relative z-10">
+            <menu className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8 relative z-10">
               {navLinks.map((item) => (
-                <motion.li
-                  key={item.name}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <button
-                    className={`flex items-center space-x-2 ${isDarkMode ? "text-white" : "text-gray-700"
-                      } hover:text-[#1E90FF] transition-colors duration-300`}
+                <MagneticEffect className="flex items-center space-x-2 relative z-10" key={item.name}>
+                  <Link
+                    href={item.href}
+                    className={`flex items-center space-x-2 text-lg font-semibold hover:text-db-orange dark:hover:text-db-blue transition-colors relative z-10 ${item.href === url ? "text-db-orange dark:text-db-blue" : "text-text-primary dark:text-dark-text-primary"}`}
+                    aria-label={`Ir a la página ${item.name}`}
+                    aria-current={item.href === url ? "page" : undefined}
+                    aria-expanded={item.href === url ? "true" : undefined}
+                    aria-controls={item.href === url ? "nav-list" : undefined}
                   >
                     <item.icon className="h-5 w-5" />
                     <span>{item.name}</span>
-                  </button>
-                </motion.li>
+                  </Link>
+                </MagneticEffect>
               ))}
-            </ul>
+            </menu>
           </motion.nav>
 
           <motion.div variants={itemVariants} className="flex items-center space-x-6">

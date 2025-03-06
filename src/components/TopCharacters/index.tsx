@@ -61,7 +61,7 @@ function TopCharacters({ characters }: TopCharactersProps) {
       <div className="relative w-full overflow-hidden container mx-auto">
         <div className="flex justify-center items-center">
           <button
-            className="absolute left-4 z-10 p-2 rounded-full bg-[#2D3748] text-db-yellow hover:bg-[#4A5568] focus:outline-none"
+            className="absolute left-4 z-10 p-2 rounded-full bg-bg-hover dark:bg-dark-bg-hover text-db-orange dark:text-db-yellow hover:bg-bg-hover/80 dark:hover:bg-dark-bg-hover/80 focus:outline-none"
             aria-label="Anterior"
             onClick={prevSlide}
           >
@@ -75,7 +75,7 @@ function TopCharacters({ characters }: TopCharactersProps) {
           </div>
 
           <button
-            className="absolute right-4 z-10 p-2 rounded-full bg-[#2D3748] text-[#FFD700] hover:bg-[#4A5568] focus:outline-none"
+            className="absolute right-4 z-10 p-2 rounded-full bg-bg-hover dark:bg-dark-bg-hover text-db-orange dark:text-db-yellow hover:bg-bg-hover/80 dark:hover:bg-dark-bg-hover/80 focus:outline-none"
             aria-label="Siguiente"
             onClick={nextSlide}
           >

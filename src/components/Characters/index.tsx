@@ -81,7 +81,7 @@ function Characters({ initialCharacters }: CharactersProps): React.JSX.Element {
 
               {currentSagaIndex < sagas.length && (
                 <button
-                  className="mt-4 bg-blue-500 text-white py-2 px-4 rounded relative z-10"
+                  className="mt-4 bg-orange-700 dark:bg-blue-700 text-white dark:text-dark-text-primary py-2 px-4 rounded relative z-10 hover:shadow-lg transition-shadow hover:shadow-orange-500/50 dark:hover:shadow-blue-500/50"
                   disabled={loading}
                   onClick={loadMoreCharacters}
                 >

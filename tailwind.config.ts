@@ -22,7 +22,7 @@ export default {
         "db-blue": "#00bfff",
         "db-yellow": "#ffd700",
 
-        "dark-bg-hover": "#1f2937",
+        "dark-bg-hover": "#0F3460",
         "dark-bg-primary": "#111827",  // LISTO es = a tailwind gray-900
         "dark-bg-darker": "#1f2937",  
         "dark-text-darker": "#1f2937",

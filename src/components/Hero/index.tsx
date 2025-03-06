@@ -42,7 +42,7 @@ function Hero({ font }: HeroProps): React.JSX.Element {
             </motion.p>
 
             <motion.button
-              className="px-8 py-4 text-lg font-bold rounded-full bg-orange-700 dark:bg-blue-700 text-white dark:text-dark-text-primary shadow-sm flex items-center justify-center mx-auto space-x-2 hover:shadow-2xl transition-shadow hover:shadow-orange-500/50 dark:hover:shadow-blue-500/50"
+              className="px-8 py-4 text-lg font-bold rounded-full bg-orange-700 dark:bg-blue-700 text-white dark:text-dark-text-primary shadow-sm flex items-center justify-center mx-auto space-x-2 hover:shadow-lg transition-shadow hover:shadow-orange-500/50 dark:hover:shadow-blue-500/50"
               aria-label="Ir a personajes"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

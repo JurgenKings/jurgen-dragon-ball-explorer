@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
-import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa"
+import { FaChevronLeft, FaChevronRight, FaPause, FaPlay } from "react-icons/fa6"
 
 const quotes = [
   {
@@ -103,7 +103,7 @@ function IconicPhrases (): React.JSX.Element {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
-            className="relative bg-black/50 rounded-xl overflow-hidden shadow-2xl"
+            className="relative rounded-xl overflow-hidden shadow-2xl bg-bg-hover dark:bg-dark-bg-hover pb-4 md:pb-0"
           >
             <div className="flex flex-col md:flex-row items-center p-8 gap-8">
               <motion.img
@@ -114,14 +114,14 @@ function IconicPhrases (): React.JSX.Element {
               />
               <div className="flex-1 text-center md:text-left">
                 <motion.h2
-                  className="text-db-yellow text-4xl md:text-6xl font-bold mb-4 font-comic leading-tight"
+                  className="text-db-orange dark:text-db-yellow text-4xl md:text-6xl font-bold mb-4 font-comic leading-tight"
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                 >
                   {quotes[currentIndex].character}
                 </motion.h2>
                 <motion.p
-                  className="text-white text-xl md:text-2xl italic shadow-text"
+                  className="text-xl md:text-2xl italic shadow-text text-text-primary dark:text-dark-text-primary pb-4"
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                 >
@@ -133,25 +133,25 @@ function IconicPhrases (): React.JSX.Element {
         </AnimatePresence>
 
         <button
-          onClick={handlePrev}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 p-4 rounded-full text-white transition-all"
+          className="absolute left-0 xl:-left-8 top-1/2 transform -translate-y-1/2 bg-bg-darker/50 hover:bg-bg-darker/70 dark:bg-white/20 dark:hover:bg-white/30 p-4 rounded-full text-white transition-all"
           aria-label="Cita anterior"
+          onClick={handlePrev}
         >
           <FaChevronLeft size={24} />
         </button>
 
         <button
-          onClick={handleNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 p-4 rounded-full text-white transition-all"
+          className="absolute right-0 xl:-right-8 top-1/2 transform -translate-y-1/2 bg-bg-darker/50 hover:bg-bg-darker/70 dark:bg-white/20 dark:hover:bg-white/30 p-4 rounded-full text-white transition-all"
           aria-label="Cita siguiente"
+          onClick={handleNext}
         >
           <FaChevronRight size={24} />
         </button>
 
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
+        <div className="absolute bottom-2 md:bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-4">
           <button
             onClick={togglePlay}
-            className="bg-white/20 hover:bg-white/30 p-3 rounded-full text-white transition-all"
+            className="bg-bg-darker/50 hover:bg-bg-darker/70 dark:bg-white/20 dark:hover:bg-white/30 p-3 rounded-full text-white transition-all"
             aria-label={isPlaying ? "Pausar reproducción" : "Comenzar reproducción"}
           >
             {isPlaying ? <FaPause size={16} /> : <FaPlay size={16} />}
@@ -161,7 +161,7 @@ function IconicPhrases (): React.JSX.Element {
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? "bg-db-yellow" : "bg-white/50 hover:bg-white/70"}`}
+                className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? "bg-db-orange dark:bg-db-yellow" : "bg-white/50 hover:bg-white/70"}`}
                 aria-label={`Ir a cita ${index + 1}`}
               />
             ))}
