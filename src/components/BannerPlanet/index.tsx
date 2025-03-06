@@ -31,7 +31,7 @@ function BannerPlanet(): React.JSX.Element {
             <Subtitle>Explora los Reinos Cósmicos de Dragon Ball</Subtitle>
 
             <p className="text-text-primary dark:text-dark-text-primary text-lg" aria-label="Texto de descripción">
-              Viaja a través de planetas misteriosos, cada uno de los cuales esconde secretos del universo de Dragon Ball. Descubre poderes ancestrales y guerreros legendarios en todo el cosmos.
+              Viaja a través de planetas misteriosos, cada uno de los cuales esconde secretos del universo. Descubre poderes ancestrales y guerreros legendarios en todo el cosmos.
             </p>
 
             <motion.button

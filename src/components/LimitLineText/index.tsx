@@ -4,9 +4,10 @@ interface LimitLineTextProps {
   text: string;
   limit: number;
   className?: string;
+  maxHeight?: number;
 }
 
-function LimitLineText({ text, limit, className }: LimitLineTextProps): React.JSX.Element {
+function LimitLineText({ text, limit, className, maxHeight }: LimitLineTextProps): React.JSX.Element {
 
   return (
     <span
@@ -17,7 +18,7 @@ function LimitLineText({ text, limit, className }: LimitLineTextProps): React.JS
         display: "-webkit-box",
         WebkitLineClamp: limit,
         WebkitBoxOrient: "vertical",
-        maxHeight: "50px"
+        maxHeight: maxHeight ? `${maxHeight}px` : "50px"
       }}
     >
       {text}
