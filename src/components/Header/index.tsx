@@ -38,7 +38,7 @@ function Header(): React.JSX.Element {
 
   return (
     <MotionTransition position="bottom" className="w-full">
-      <header className={`w-full bg-bg-primary dark:bg-dark-bg-primary relative z-50 ${isMenuOpen ? "sticky top-0 left-0 right-0" : ""}`}>
+      <header className={`w-full h-[80px] md:h-[86px] bg-bg-primary dark:bg-dark-bg-primary ${isMenuOpen ? "sticky top-0 left-0 right-0 z-40" : ""}`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <button onClick={handleNavigationHome}>

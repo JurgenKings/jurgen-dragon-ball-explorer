@@ -44,7 +44,7 @@ function NavMobile({ isMenuOpen, navLinks, toggleIsOpenMenu }: NavMobileProps): 
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 z-40 bg-bg-primary dark:bg-dark-bg-primary flex flex-col items-center justify-center pb-20"
+            className="fixed inset-0 z-30 mt-[80px] md:mt-[86px] bg-bg-primary dark:bg-dark-bg-primary flex flex-col items-center justify-center pb-20"
           >
             <nav className="flex flex-col items-center space-y-8">
               {navLinks.map((link) => (
